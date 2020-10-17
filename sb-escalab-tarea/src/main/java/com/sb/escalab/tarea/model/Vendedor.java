@@ -23,16 +23,19 @@ public class Vendedor {
 	@JoinColumn(name = "id_supervisor", nullable = false, foreignKey = @ForeignKey(name = "FK_vendedor_supervisor"))
 	private Supervisor supervisor;
 	
-	@Column(name = "nombre", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Nombre debe tener mínimo 3 caracteres")
+	@Column(name = "nombre", nullable = false, length = 70)
+	@Size(min = 3, max = 70, message = "Nombre debe tener mínimo 3 caracteres")
 	private String nombre;
 	
-	@Column(name = "apellido", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Apellido debe tener mínimo 3 caracteres")
-	private String apellido;
+	/*
+	 * @Column(name = "apellido", nullable = false, length = 50)
+	 * 
+	 * @Size(min = 3, max = 50, message = "Apellido debe tener mínimo 3 caracteres")
+	 * private String apellido;
+	 */
 	
-	@Column(name = "dir_vendedor", nullable = false, length = 100)
-	@Size(min = 3, max = 100, message = "Dirección debe tener mínimo 3 caracteres")
+	@Column(name = "dir_vendedor", nullable = true, length = 150)
+	@Size(min = 3, max = 150, message = "Dirección debe tener mínimo 3 caracteres")
 	private String dirVendedor;
 
 	public Integer getIdVendedor() {
@@ -59,13 +62,11 @@ public class Vendedor {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	/*
+	 * public String getApellido() { return apellido; }
+	 * 
+	 * public void setApellido(String apellido) { this.apellido = apellido; }
+	 */
 
 	public String getDirVendedor() {
 		return dirVendedor;

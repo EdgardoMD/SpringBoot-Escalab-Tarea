@@ -17,15 +17,18 @@ public class Supervisor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idSupervisor;
 	
-	@Column(name = "nombre", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Nombre debe tener a lo menos 3 caracteres" )
+	@Column(name = "nombre", nullable = false, length = 70)
+	@Size(min = 3, max = 70, message = "Nombre debe tener a lo menos 3 caracteres" )
 	private String nombre;
 	
-	@Column(name = "apellido", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Apellido debe tener a lo menos 3 caracteres")
-	private String apellido;
+	/*
+	 * @Column(name = "apellido", nullable = false, length = 50)
+	 * 
+	 * @Size(min = 3, max = 50, message =
+	 * "Apellido debe tener a lo menos 3 caracteres") private String apellido;
+	 */
 	
-	@Column(name = "dir_supervisor", nullable = false, length = 100)
+	@Column(name = "dir_supervisor", nullable = false, length = 150)
 	@Size(min = 3, max = 100, message = "Dirección debe tener a lo menos 3 caracteres")
 	private String dirSupervisor;
 	
@@ -49,13 +52,11 @@ public class Supervisor {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	/*
+	 * public String getApellido() { return apellido; }
+	 * 
+	 * public void setApellido(String apellido) { this.apellido = apellido; }
+	 */
 
 	public String getDirSupervisor() {
 		return dirSupervisor;

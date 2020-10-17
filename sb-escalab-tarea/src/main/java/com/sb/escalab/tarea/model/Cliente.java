@@ -16,16 +16,19 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCliente;
 	
-	@Column(name = "nombre", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Nombre debe tener mínimo 3 caracteres")
+	@Column(name = "nombre", nullable = false, length = 70)
+	@Size(min = 3, max = 70, message = "Nombre debe tener mínimo 3 caracteres")
 	private String nombre;
 	
-	@Column(name = "apellido", nullable = false, length = 50)
-	@Size(min = 3, max = 50, message = "Apellido debe tener a lo menos 3 caracteres")
-	private String apellido;
+	/*
+	 * @Column(name = "apellido", nullable = false, length = 50)
+	 * 
+	 * @Size(min = 3, max = 50, message =
+	 * "Apellido debe tener a lo menos 3 caracteres") private String apellido;
+	 */
 	
-	@Column(name = "dir_cliente", nullable = true, length = 100)
-	@Size(min = 3, max = 100, message = "Dirección debe tener a lo menos 3 caracteres")
+	@Column(name = "dir_cliente", nullable = true, length = 150)
+	@Size(min = 3, max = 150, message = "Dirección debe tener a lo menos 3 caracteres")
 	private String dirCliente;
 	
 	@Column(name = "tel_cliente", nullable = true, length = 9)
@@ -48,13 +51,11 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	/*
+	 * public String getApellido() { return apellido; }
+	 * 
+	 * public void setApellido(String apellido) { this.apellido = apellido; }
+	 */
 
 	public String getDirCliente() {
 		return dirCliente;
