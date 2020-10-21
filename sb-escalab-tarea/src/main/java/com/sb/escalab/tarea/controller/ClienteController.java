@@ -37,7 +37,7 @@ public class ClienteController {
 	public ResponseEntity<Cliente> listarPorId(@PathVariable("id") Integer id){
 		Cliente obj = service.leerPorId(id);
 		if(obj.getIdCliente() == null) {
-			throw new ModeloNotFoundException("ID NO ENCONTRADO" + id);	
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);	
 		}
 		return new ResponseEntity<Cliente> (obj, HttpStatus.OK);
 	}
@@ -45,7 +45,7 @@ public class ClienteController {
 	@PostMapping
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Cliente cliente){
 		Cliente obj = service.registrar(cliente);
-		return new ResponseEntity<Object> (obj, HttpStatus.OK);
+		return new ResponseEntity<Object> (obj, HttpStatus.CREATED);
 	}
 	
 	@PutMapping

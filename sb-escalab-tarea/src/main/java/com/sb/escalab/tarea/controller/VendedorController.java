@@ -17,47 +17,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sb.escalab.tarea.exception.ModeloNotFoundException;
-import com.sb.escalab.tarea.model.Supervisor;
-import com.sb.escalab.tarea.service.ISupervisorService;
+import com.sb.escalab.tarea.model.Vendedor;
+import com.sb.escalab.tarea.service.IVendedorService;
 
 @RestController
-@RequestMapping("/supervisores")
-public class SupervisorController {
+@RequestMapping("/vendedores")
+public class VendedorController {
 	
 	@Autowired
-	private ISupervisorService service;
+	private IVendedorService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Supervisor>> listar(){
-		List<Supervisor> lista = service.listar();
-		return new ResponseEntity<List<Supervisor>>(lista, HttpStatus.OK);
+	public ResponseEntity<List<Vendedor>> listar(){
+		 List<Vendedor> lista = service.listar();
+		return new ResponseEntity<List<Vendedor>>(lista, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Supervisor> listarPorId(@PathVariable("id") Integer id){
-		Supervisor obj = service.leerPorId(id);
-		if(obj.getIdSupervisor() == null) {
+	public ResponseEntity<Vendedor> listarPorId(@PathVariable("id") Integer id){
+		Vendedor ven = service.leerPorId(id);
+		if(ven.getIdVendedor() == null) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
 		}
-		return new ResponseEntity<Supervisor> (obj, HttpStatus.OK);
+		return new ResponseEntity<Vendedor>(ven, HttpStatus.OK); 
 	}
 	
 	@PostMapping
-	public ResponseEntity<Object> registrar(@Valid @RequestBody Supervisor supervisor){ //REVISAR
-		Supervisor obj = service.registrar(supervisor);
-		return new ResponseEntity<Object>(obj, HttpStatus.CREATED);
+	public ResponseEntity<Vendedor> registrar(@Valid @RequestBody Vendedor vendedor) {
+		Vendedor ven = service.registrar(vendedor);
+		return new ResponseEntity<Vendedor>(ven, HttpStatus.CREATED);
 	}
 	
 	@PutMapping
-	public ResponseEntity<Supervisor> modificar(@Valid @RequestBody Supervisor supervisor){
-		Supervisor obj = service.modificar(supervisor);
-		return new ResponseEntity<Supervisor>(obj, HttpStatus.OK);
+	public ResponseEntity<Vendedor> modificar(@Valid @RequestBody Vendedor vendedor) {
+		Vendedor ven = service.modificar(vendedor);
+		return new ResponseEntity<Vendedor>(ven, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
-		Supervisor obj = service.leerPorId(id);
-		if(obj.getIdSupervisor() == null) {
+		Vendedor ven = service.leerPorId(id);
+		if(ven.getIdVendedor() == null) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
 		}
 		service.eliminar(id);

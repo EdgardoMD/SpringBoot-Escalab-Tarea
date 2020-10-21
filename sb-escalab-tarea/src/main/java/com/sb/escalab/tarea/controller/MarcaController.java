@@ -37,7 +37,7 @@ public class MarcaController {
 	public ResponseEntity<Marca> listarPorId(@PathVariable("id") Integer id){
 		Marca obj = service.leerPorId(id);
 		if(obj.getIdMarca() == null) {
-			throw new ModeloNotFoundException("ID NO ENCONTRADO" + id);
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
 		}
 		return new ResponseEntity<Marca> (obj, HttpStatus.OK);
 	}
@@ -45,7 +45,7 @@ public class MarcaController {
 	@PostMapping
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Marca marca){
 		Marca obj = service.registrar(marca);
-		return new ResponseEntity<Object> (obj, HttpStatus.OK);
+		return new ResponseEntity<Object> (obj, HttpStatus.CREATED);
 	}
 	
 	 @PutMapping
@@ -58,7 +58,7 @@ public class MarcaController {
 	 public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
 		 Marca obj = service.leerPorId(id);
 		 if(obj.getIdMarca() == null) {
-			 throw new ModeloNotFoundException("ID NO ENCONTRADO" + id);
+			 throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
 		 }
 		 service.eliminar(id);
 		 return new ResponseEntity<Object> (HttpStatus.OK);
