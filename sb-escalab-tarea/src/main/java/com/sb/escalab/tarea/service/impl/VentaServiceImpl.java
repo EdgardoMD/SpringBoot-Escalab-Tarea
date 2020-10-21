@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sb.escalab.tarea.model.Venta;
 import com.sb.escalab.tarea.repo.IVentaRepo;
 import com.sb.escalab.tarea.service.IVentaService;
 
+@Service
 public class VentaServiceImpl implements IVentaService{
 	
 	@Autowired
